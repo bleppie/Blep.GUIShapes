@@ -1,0 +1,13 @@
+{
+    "name": "com.blep.guishapes",
+    "version": "1.0.0",
+    "displayName": "Blep.GUIShapes",
+    "description": "Simple shapes in Unity's GUI.",
+    "samples": [
+        {
+            "displayName": "Sample",
+            "description": "Examples of shapes.",
+            "path": "Samples~/Sample"
+        }
+    ]
+}
