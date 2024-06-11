@@ -2,8 +2,8 @@ Blep.GUIShapes
 ===============
 
 **Blep.GUIShapes** is a package that adds simple shapes with outlines to Unity's
-GUI. It uses Shader Graph, and hence requires 2023 and above. The outlines are
-nicely antialiased. Shapes are a subclass of Image, and so support all
+GUI. It uses Shader Graph, and hence requires Unity 6 and above. The outlines
+are nicely antialiased. Shapes are a subclass of Image, and so support all
 operations that Images do.
 
 To create a shape, simply add the corresponding Component to your GameObject.

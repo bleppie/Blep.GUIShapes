@@ -296,6 +296,7 @@
     "m_OutputNode": {
         "m_Id": ""
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "a05892a98c8a45de8ffe1e8a556e65db"
@@ -1179,6 +1180,11 @@
     "m_SGVersion": 2,
     "m_Type": "UnityEditor.Rendering.BuiltIn.ShaderGraph.BuiltInTarget",
     "m_ObjectId": "a05892a98c8a45de8ffe1e8a556e65db",
+    "m_Datas": [
+        {
+            "m_Id": "cf989831f3a3438d876594dcd9817d15"
+        }
+    ],
     "m_ActiveSubTarget": {
         "m_Id": "5164cae04b694b6b8e2d8ed2e91e0c4f"
     },
@@ -1235,15 +1241,15 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "CustomRectangleSdf (Custom Function)",
+    "m_Name": "RectangleSdf (Custom Function)",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1197.5,
-            "y": -632.0,
+            "x": -1197.5001220703125,
+            "y": -631.0000610351563,
             "width": 274.0,
-            "height": 118.0
+            "height": 142.00003051757813
         }
     },
     "m_Slots": [
@@ -1272,7 +1278,7 @@
         "m_SerializableColors": []
     },
     "m_SourceType": 0,
-    "m_FunctionName": "CustomRectangleSdf",
+    "m_FunctionName": "RectangleSdf",
     "m_FunctionSource": "77748deebd22044b5accdd02726dd2c1",
     "m_FunctionBody": "Enter function body here..."
 }
@@ -1388,6 +1394,15 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Canvas.ShaderGraph.CanvasData",
+    "m_ObjectId": "cf989831f3a3438d876594dcd9817d15",
+    "m_Version": 0,
+    "m_AlphaClip": false,
+    "m_DisableTint": false
 }
 
 {

@@ -83,7 +83,7 @@ void EllipseSdf_half(half2 uv, half2 size, out half sdf) {
     sdf = sign(dot(p, p) - dot(q, q)) * df;
 }
 
-void CustomRectangleSdf_float(float2 uv, float2 size, float4 radii, out float sdf) {
+void RectangleSdf_float(float2 uv, float2 size, float4 radii, out float sdf) {
     float2 xy = uv * size;
     float2 center = size * 0.5f;
     float2 xyCentered = xy - center;
@@ -113,7 +113,7 @@ void CustomRectangleSdf_float(float2 uv, float2 size, float4 radii, out float sd
     sdf = any(delta < 0) ? sdfEdge : sdfCorner;
 }
 
-void CustomRectangleSdf_half(half2 uv, half2 size, half4 radii, out half sdf) {
+void RectangleSdf_half(half2 uv, half2 size, half4 radii, out half sdf) {
     half2 xy = uv * size;
     half2 center = size * 0.5f;
     half2 xyCentered = xy - center;
@@ -175,7 +175,7 @@ void ColorFromSdf_half(half sdf, half4 fillColor,
     color.a *= 1 - saturate(sdf);
 }
 
-// void RectangleSdf_float(float2 uv, out float sdf) {
+// void PlainRectangleSdf_float(float2 uv, out float sdf) {
 //     float2 size = SizeFromUV(uv);
 //     float2 xy = uv * size;
 //     float2 center = size * 0.5f;
