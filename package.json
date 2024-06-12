@@ -1,13 +1,18 @@
 {
     "name": "com.blep.guishapes",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "displayName": "Blep.GUIShapes",
-    "description": "Simple shapes in Unity's GUI.",
+    "description": "Simple, outlined shapes in Unity's GUI.",
     "samples": [
         {
             "displayName": "Sample",
-            "description": "Examples of shapes.",
+            "description": "Examples of all shape types.",
             "path": "Samples~/Sample"
+        },
+        {
+            "displayName": "Shader Graph Sample",
+            "description": "Using shape functions in a shader graph, requires Unity 6+.",
+            "path": "Samples~/ShaderGraphSample"
         }
     ]
 }
