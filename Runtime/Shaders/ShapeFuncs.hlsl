@@ -1,13 +1,7 @@
 #ifndef _BLEP_GUISHAPES_FUNCS
 #define _BLEP_GUISHAPES_FUNCS
 
-// UNUSED Calclate size by looking at how uv changes from pixel to pixel. This
-// works, but outlineWidth remains pixel constant even when scaling. It also
-// doesn't work in world-space UIs that are not orthogonal to the screen.
-float2 SizeFromUV(float2 uv) {
-    float4 dxy = abs(float4(ddx(uv), ddy(uv)));
-    return rcp(float2(length(dxy.xz), length(dxy.yw)));
-}
+// There are two versions of each of these, float and half, so they can work in ShaderGraph
 
 void CircleSdf_float(float2 uv, float2 size, out float sdf) {
     float2 xy = uv * size;
@@ -23,6 +17,26 @@ void CircleSdf_half(half2 uv, half2 size, out half sdf) {
     half radius = min(size.x, size.y) * 0.5f;
 
     sdf = distance(xy, center) - radius;
+}
+
+void PillSdf_float(float2 uv, float2 size, out float sdf) {
+  float2 xy = uv * size;
+  float2 center = size * 0.5f;
+  float radius = min(size.x, size.y) * 0.5f;
+
+  xy = xy - center;
+  float2 delta = max(0, abs(xy) - center + radius); // magic
+  sdf = length(delta) - radius;
+}
+
+void PillSdf_half(half2 uv, half2 size, out half sdf) {
+  half2 xy = uv * size;
+  half2 center = size * 0.5f;
+  half radius = min(size.x, size.y) * 0.5f;
+
+  xy = xy - center;
+  half2 delta = max(0, abs(xy) - center + radius); // magic
+  sdf = length(delta) - radius;
 }
 
 void EllipseSdf_float(float2 uv, float2 size, out float sdf) {
@@ -180,6 +194,14 @@ void ColorFromSdf_half(half sdf, half4 fillColor,
     color = lerp(fillColor, outlineColor, saturate(sdf + outlineWidth));
     color.a *= 1 - saturate(sdf);
 }
+
+// UNUSED Calculate size by looking at how uv changes from pixel to pixel. This
+// works, but outlineWidth remains pixel constant even when scaling. It also
+ // doesn't work in world-space UIs that are not orthogonal to the screen.
+// float2 SizeFromUV(float2 uv) {
+//     float4 dxy = abs(float4(ddx(uv), ddy(uv)));
+//     return rcp(float2(length(dxy.xz), length(dxy.yw)));
+// }
 
 // void PlainRectangleSdf_float(float2 uv, out float sdf) {
 //     float2 size = SizeFromUV(uv);
