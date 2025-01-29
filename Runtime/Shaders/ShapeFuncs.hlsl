@@ -147,6 +147,9 @@ void ColorFromSdf_float(float sdf, float4 fillColor,
                         float4 outlineColor, float outlineWidth,
                         out float4 color) {
 
+    // If outline-width < 1, interpolate outline- color with fill-color
+    outlineColor = lerp(fillColor, outlineColor, saturate(outlineWidth));
+
     // Magic that does antialiasing
     // distOuter = dist
     // distInner = dist + OutlineWidth
@@ -162,6 +165,9 @@ void ColorFromSdf_float(float sdf, float4 fillColor,
 void ColorFromSdf_half(half sdf, half4 fillColor,
                         half4 outlineColor, half outlineWidth,
                         out half4 color) {
+    // If outline-width < 1, interpolate outline- color with fill-color
+    outlineColor = lerp(fillColor, outlineColor, saturate(outlineWidth));
+
 
     // Magic that does antialiasing
     // distOuter = dist

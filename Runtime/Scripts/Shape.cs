@@ -60,10 +60,12 @@ public class Shape : Image {
     }
     public bool hasUserMaterial => m_Material != null;
 
+#if UNITY_EDITOR
     protected override void OnValidate() {
         base.OnValidate();
         SetMaterialDirty();
     }
+#endif
 
     public override Material GetModifiedMaterial(Material baseMaterial) {
         var mat = base.GetModifiedMaterial(baseMaterial);
