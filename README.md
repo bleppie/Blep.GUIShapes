@@ -5,10 +5,10 @@ Blep.GUIShapes
 GUI. The outlines are nicely antialiased. Shapes are a subclass of Image, and so
 support all operations that Images do.
 
-To create a shape, simply add the corresponding Component to your GameObject.
-Eg, for a circle, add the Circle component. Rectangles can be plain (right
-angled), rounded, chamfered, or custom (each corner has a different
-radius/chamfer). Each one of these Components will have its own Material.
+To create a shape, simply add the corresponding Component to your GameObject:
+Circle, Ellipse, or Rectangle. Rectangles can be plain (right angled), rounded,
+chamfered, or custom (each corner has a different radius/chamfer). Each one of
+these Components will have its own Material.
 
 If you want multiple shapes to share the same material, use the generic Shape
 Component: Create a Material using one of the included Shaders (Circle, Ellipse,
