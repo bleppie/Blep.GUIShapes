@@ -44,13 +44,14 @@ public class Shape : Image {
         }
     }
 
+    [SerializeField][HideInInspector]
     private Material _localMaterial;
     public override Material material {
         get {
             if (shaderName == null || hasUserMaterial) {
                 return base.material;
             }
-            if (_localMaterial == null) {
+            if (! _localMaterial) {
                 var shader = Shader.Find(shaderName);
                 // In some cases, Shader.Find returns a shader with no name when it can't find the shader
                 if (string.IsNullOrEmpty(shader?.name)) {
