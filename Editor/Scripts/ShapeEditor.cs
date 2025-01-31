@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Blep.GUIShapes;
 
+namespace Blep.GUIShapes.Editor {
+
 [CustomEditor(typeof(Shape), true)]
 public class ShapeEditor : ImageEditor {
     private SerializedProperty fillColorProp;
@@ -39,4 +41,6 @@ public class ShapeEditor : ImageEditor {
         ShapeFields();
         ImageFields();
     }
+}
+
 }

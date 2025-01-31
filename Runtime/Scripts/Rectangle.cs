@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Blep.GUIShapes {
 
+[AddComponentMenu("UI/Blep/Rectangle")]
 public class Rectangle : Shape {
 
     protected static int RadiiID = Shader.PropertyToID("_Radii");
