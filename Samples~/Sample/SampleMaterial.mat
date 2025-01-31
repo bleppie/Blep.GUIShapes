@@ -55,6 +55,6 @@ Material:
     - _FillColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _Radii: {r: -30, g: -30, b: -30, a: -30}
-    - _Size: {r: 300, g: 150, b: 0, a: 0}
+    - _Size: {r: 250, g: 150, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
