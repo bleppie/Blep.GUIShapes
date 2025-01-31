@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Blep.GUIShapes;
 
+namespace Blep.GUIShapes.Editor {
+
 [CustomEditor(typeof(Rectangle), true)]
 public class RectangleEditor : ShapeEditor {
     private SerializedProperty cornerTypeProp;
@@ -40,4 +42,6 @@ public class RectangleEditor : ShapeEditor {
         serializedObject.ApplyModifiedProperties();
         ImageFields();
     }
+}
+
 }

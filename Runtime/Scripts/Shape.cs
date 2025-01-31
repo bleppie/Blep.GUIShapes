@@ -4,6 +4,7 @@ using UnityEngine.Sprites;
 
 namespace Blep.GUIShapes {
 
+[AddComponentMenu("UI/Blep/Shape")]
 public class Shape : Image {
 
     protected static int FillColorID = Shader.PropertyToID("_FillColor");
@@ -51,7 +52,11 @@ public class Shape : Image {
             }
             if (_localMaterial == null) {
                 var shader = Shader.Find(shaderName);
-                Debug.AssertFormat(shader != null, "Can't find shader '{0}'", shaderName);
+                // In some cases, Shader.Find returns a shader with no name when it can't find the shader
+                if (string.IsNullOrEmpty(shader?.name)) {
+                    Debug.LogError($"Can't find shader {shaderName}");
+                    return base.material;
+                }
                 _localMaterial = new Material(shader);
             }
             return _localMaterial;
@@ -64,6 +69,10 @@ public class Shape : Image {
     protected override void OnValidate() {
         base.OnValidate();
         SetMaterialDirty();
+
+        // Have to make sure the shader is referenced in the scene, otherwise
+        // Shader.Find won't find it (even though it's in a Resource folder!)
+        var mat = material;
     }
 #endif
 
