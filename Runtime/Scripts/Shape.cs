@@ -44,7 +44,7 @@ public class Shape : Image {
         }
     }
 
-    public new Awake() {
+    public new void Awake() {
         base.Awake();
         // See below
         _localMaterial = null;
