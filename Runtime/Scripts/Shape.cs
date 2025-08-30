@@ -44,6 +44,17 @@ public class Shape : Image {
         }
     }
 
+    public new Awake() {
+        base.Awake();
+        // See below
+        _localMaterial = null;
+    }
+
+    // Package resources don't seem to be included in the build, so serialize
+    // the material. BUT this causes problems when copying, since the new game
+    // object will share a material with the old game object. So in Awake, null
+    // it. What a f-ing hack. Addressables seemed to add even more complexity.
+    // Perhaps look at creating a ShaderVariantCollection like softmask does?
     [SerializeField][HideInInspector]
     private Material _localMaterial;
     public override Material material {
@@ -53,7 +64,8 @@ public class Shape : Image {
             }
             if (! _localMaterial) {
                 var shader = Shader.Find(shaderName);
-                // In some cases, Shader.Find returns a shader with no name when it can't find the shader
+                // In some cases, Shader.Find returns a bad shader with no name
+                // when it can't find the shader
                 if (string.IsNullOrEmpty(shader?.name)) {
                     Debug.LogError($"Can't find shader {shaderName}");
                     return base.material;
